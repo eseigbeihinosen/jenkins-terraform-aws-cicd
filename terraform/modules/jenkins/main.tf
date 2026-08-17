@@ -14,3 +14,13 @@ resource "aws_instance" "this" {
     Name = var.instance_name
   }
 }
+
+resource "aws_eip" "this" {
+  domain = "vpc"
+
+  instance = aws_instance.this.id
+
+  tags = {
+    Name = "${var.instance_name}-eip"
+  }
+}

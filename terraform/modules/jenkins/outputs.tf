@@ -4,8 +4,8 @@ output "instance_id" {
 }
 
 output "public_ip" {
-  description = "Public IP address of the Jenkins EC2 instance"
-  value       = aws_instance.this.public_ip
+  description = "Elastic IP address of the Jenkins EC2 instance"
+  value       = aws_eip.this.public_ip
 }
 
 output "private_ip" {
