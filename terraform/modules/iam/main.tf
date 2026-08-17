@@ -115,6 +115,28 @@ resource "aws_iam_policy" "terraform" {
         ]
 
         Resource = "arn:aws:ssm:*:*:parameter/aws/service/canonical/ubuntu/server/*"
+      },
+      {
+        Sid    = "TerraformS3State"
+        Effect = "Allow"
+
+        Action = [
+          "s3:ListBucket"
+        ]
+
+        Resource = "arn:aws:s3:::jenkins-terraform-state-168381254318-us-east-1"
+      },
+      {
+        Sid    = "TerraformS3StateObjects"
+        Effect = "Allow"
+
+        Action = [
+          "s3:GetObject",
+          "s3:PutObject",
+          "s3:DeleteObject"
+        ]
+
+        Resource = "arn:aws:s3:::jenkins-terraform-state-168381254318-us-east-1/jenkins-cicd/*"
       }
     ]
   })
