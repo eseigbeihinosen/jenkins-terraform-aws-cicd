@@ -100,7 +100,12 @@ resource "aws_iam_policy" "terraform" {
           "iam:TagInstanceProfile",
           "iam:PassRole",
           "iam:AttachRolePolicy",
-          "iam:DetachRolePolicy"
+          "iam:DetachRolePolicy",
+          "iam:ListRolePolicies",
+          "iam:GetPolicy",
+          "iam:GetPolicyVersion",
+          "iam:ListPolicyVersions",
+          "iam:ListAttachedRolePolicies"
         ]
 
         Resource = "*"
